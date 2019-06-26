@@ -3,15 +3,34 @@ language: swift
 xcode_workspace: TesserCube.xcworkspace
 xcode_scheme: TesserCube
 xcode_destination: platform=iOS Simulator,OS=12.2,name=iPhone X
-# cache: cocoapods
-jdk: openjdk11
 before_install:
-  - export JAVA_HOME=$HOME/openjdk11
-  - $TRAVIS_BUILD_DIR/install-jdk.sh --url 'https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_osx-x64_bin.tar.gz' --target $JAVA_HOME
-  - java -version
-  - gem install cocoapods
-  - pod install --repo-update
-script:
-  - set -o pipefail
-  - cat Pods/BouncyCastle-ObjC/BouncyCastle-ObjC/Classes/Base64.h
-  - xcodebuild -workspace TesserCube.xcworkspace -scheme TesserCube -destination platform\=iOS\ Simulator,OS\=12.2,name\=iPhone\ X | xcpretty -c
+- export JAVA_HOME=$HOME/openjdk11
+- "$TRAVIS_BUILD_DIR/install-jdk.sh --url 'https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_osx-x64_bin.tar.gz'
+  --target $JAVA_HOME"
+- java -version
+- gem install cocoapods
+- pod install --repo-update
+jobs:
+  include:
+  - stage: Archive
+    script:
+    - set -o pipefail
+    - cat Pods/BouncyCastle-ObjC/BouncyCastle-ObjC/Classes/Base64.h
+    - xcodebuild -workspace TesserCube.xcworkspace -scheme TesserCube -destination
+      platform\=iOS\ Simulator,OS\=12.2,name\=iPhone\ X | xcpretty -c
+  - stage: Test if statement
+    if: branch = feat/CI
+    script:
+    - echo $PATH
+  - stage: Push To TestFlight
+    if: branch = develop
+    script:
+    - xcrun --version
+env:
+  global:
+    secure: geW6ZmFMj1Bl9n8GESOxdcSDy3HJZ6K55kguzJ3OpCiB89+QrIAYf+6Cwf5pqRBcJnPUA5/KfBiJRMwo/lAVuJGVmE9vqIXy9+4AcgdclTb3aYhzhR/8oBGcySUEVxf5oJCSj303WrVQRiOA902v0ZtnqHUinGvwAG758HPlFtS1as9F5kz4zTyWC/jmT5mW+VBLf7RlqpHQgKx0oA9B+gSrEqTxApnrDWncvp4GRgeRNK1H2oM2YEZ1BQkJKSZGvB+5sKOKxPBTlPAiUqgZfm5vHaSejdDwZIzwqR0yQIFs5+K+SdEO4Chi9vwfDwx/NgQs95OuBjVMqzu9COCInRawqPrIqIWe0iEbZiQhElwwwneGHjAxjsYf6xU/NpZ5q9yUfX9ZrdOu5uLgS250AgI/YR1KRxbN/oPdoOJtDC8dkpONGepcr1+FTodRXUSMCaAh6sgu7YWWglIxw61qlZxGJBfeAdx8uglBQa/HscjOmzOcXaR57DvVaYl8z2zaxertDuiTfp0izChXzpphypAI1HqYJPgO5+b/SXJ86bU5oSNlE7sIIptEAe+0H1V7v6zeWB9XP4hXDr7KrL/F7XS9IndyaSm18eZ3XMNkaoEKI3Jbqpvgug19gL78pIWXlHC+baQl4/CapemgOMEaOq2Upq6VOuEWJL4oPAv4tIw=
+global:
+- DISTRIBUTION_LISTS=""
+- APPNAME="Tessercube"
+- 'DEVELOPER_NAME="iPhone Distribution: SUJITEKU LIMITED LIABILITY CO. (7LFDZ96332)"'
+- PROFILE_NAME=[Name of provisioning file]
