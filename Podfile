@@ -29,6 +29,7 @@ def common_pods
 
   pod 'WordSuggestion', '~> 0.2.1'
   
+  pod 'Web3', '~> 0.4.1'
   pod 'Web3/ContractABI', '~> 0.4.1'
   pod 'DMS_HDWallet_Cocoa', '~> 0.2.1'
 end

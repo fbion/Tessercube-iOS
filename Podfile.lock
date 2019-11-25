@@ -64,12 +64,17 @@ PODS:
   - SwiftGen (6.1.0)
   - SwiftLint (0.30.1)
   - "UITextView+Placeholder (1.3.3)"
+  - Web3 (0.4.1):
+    - Web3/Core (= 0.4.1)
+    - Web3/HTTPExtension (= 0.4.1)
   - Web3/ContractABI (0.4.1):
     - Web3/Core
   - Web3/Core (0.4.1):
     - BigInt (~> 4.0)
     - CryptoSwift (~> 1.0)
     - secp256k1.swift (~> 0.1)
+  - Web3/HTTPExtension (0.4.1):
+    - Web3/Core
   - WordSuggestion (0.2.1):
     - RealmSwift
 
@@ -98,6 +103,7 @@ DEPENDENCIES:
   - SwiftGen (~> 6.1.0)
   - SwiftLint (~> 0.30.1)
   - "UITextView+Placeholder (~> 1.3.1)"
+  - Web3 (~> 0.4.1)
   - Web3/ContractABI (~> 0.4.1)
   - WordSuggestion (~> 0.2.1)
 
@@ -184,6 +190,6 @@ SPEC CHECKSUMS:
   Web3: a4eb0d0cdedbef3f0e4c97ea83a4232a1b1f952b
   WordSuggestion: 424d96dd2cfe4259c72959f9bdcffc864f0e65d4
 
-PODFILE CHECKSUM: 0acc7fd6b7a94468af29de37c79e843befd8798c
+PODFILE CHECKSUM: 714c181e91466a692f7524921efd98d728b49e37
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.8.3

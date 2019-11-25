@@ -131,6 +131,11 @@
 		83955B8123729B6B00161498 /* RedPacketWalletProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83955B7F23729B6B00161498 /* RedPacketWalletProvider.swift */; };
 		83955B8423729E8C00161498 /* RedPacketProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83955B8223729E8C00161498 /* RedPacketProperty.swift */; };
 		839E647B23320751005C21FA /* (null) in Sources */ = {isa = PBXBuildFile; };
+		83B8D2A6237A7FB800DF69C0 /* RedPacketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B8D2A5237A7FB800DF69C0 /* RedPacketService.swift */; };
+		83B8D2A7237A7FB800DF69C0 /* RedPacketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B8D2A5237A7FB800DF69C0 /* RedPacketService.swift */; };
+		83B8D2A8237A8F8700DF69C0 /* RedPacketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B8D2A5237A7FB800DF69C0 /* RedPacketService.swift */; };
+		83B8D2A9237A8F8700DF69C0 /* RedPacketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B8D2A5237A7FB800DF69C0 /* RedPacketService.swift */; };
+		83B8D2AC237A942C00DF69C0 /* CreateRedPacketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B8D2AB237A942C00DF69C0 /* CreateRedPacketViewController.swift */; };
 		83B93D1F221CE06100F556C0 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B93D1E221CE06100F556C0 /* Application.swift */; };
 		83B93D22221CEB9800F556C0 /* UserDefaults+AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B93D21221CEB9800F556C0 /* UserDefaults+AppGroup.swift */; };
 		83B93D2D221D22FA00F556C0 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B93D2C221D22FA00F556C0 /* KeyboardViewController.swift */; };
@@ -602,6 +607,8 @@
 		83955B7C2372986200161498 /* RedPacketSplitMethodProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedPacketSplitMethodProvider.swift; sourceTree = "<group>"; };
 		83955B7F23729B6B00161498 /* RedPacketWalletProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedPacketWalletProvider.swift; sourceTree = "<group>"; };
 		83955B8223729E8C00161498 /* RedPacketProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedPacketProperty.swift; sourceTree = "<group>"; };
+		83B8D2A5237A7FB800DF69C0 /* RedPacketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedPacketService.swift; sourceTree = "<group>"; };
+		83B8D2AB237A942C00DF69C0 /* CreateRedPacketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRedPacketViewController.swift; sourceTree = "<group>"; };
 		83B93D0D221CDC0200F556C0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		83B93D0E221CDC0200F556C0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		83B93D1E221CE06100F556C0 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
@@ -1028,6 +1035,7 @@
 				DBC24B1323026BA800A4AE8D /* WordSuggestionService.swift */,
 				DB3B58E12282929700879834 /* WormholdService.swift */,
 				DB0ABA17237585B500AD3B7F /* WalletService.swift */,
+				83B8D2A5237A7FB800DF69C0 /* RedPacketService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1229,6 +1237,14 @@
 				836F23C32373BF2900F938E6 /* RedPacketRecipientSelectViewController.swift */,
 			);
 			path = RedPacket;
+			sourceTree = "<group>";
+		};
+		83B8D2AA237A93DA00DF69C0 /* RedPacketScene */ = {
+			isa = PBXGroup;
+			children = (
+				83B8D2AB237A942C00DF69C0 /* CreateRedPacketViewController.swift */,
+			);
+			path = RedPacketScene;
 			sourceTree = "<group>";
 		};
 		83B93D11221CDC3400F556C0 /* Support Files */ = {
@@ -1632,6 +1648,7 @@
 		DBEE8959237282390080C194 /* Wallets */ = {
 			isa = PBXGroup;
 			children = (
+				83B8D2AA237A93DA00DF69C0 /* RedPacketScene */,
 				DBEE89622372A5E90080C194 /* WalletsScene */,
 				DBEE89632372A5F50080C194 /* CreateWalletScene */,
 				DBC19D8A237509E700170151 /* ImportWalletScene */,
@@ -2314,6 +2331,7 @@
 				83B93D22221CEB9800F556C0 /* UserDefaults+AppGroup.swift in Sources */,
 				832146B6223F89A8008ECC22 /* CALayer+Shadow.swift in Sources */,
 				8313F69B22476F5500C09C2D /* SharePosterViewController.swift in Sources */,
+				83B8D2AC237A942C00DF69C0 /* CreateRedPacketViewController.swift in Sources */,
 				837833632249C33B00F2C0BF /* TCDBManager.swift in Sources */,
 				833FF38D224F97BD00EFE0A9 /* ProfileService+Message.swift in Sources */,
 				DBD98FDB2334B7B7003A952B /* CryptoPublicKey.swift in Sources */,
@@ -2328,6 +2346,7 @@
 				83214688223F40BC008ECC22 /* MainTabbarViewController.swift in Sources */,
 				8304E995221BF10000122637 /* AppDelegate.swift in Sources */,
 				831C831422CC9BEB008DE52C /* ImportPublicKeyConfirmViewController.swift in Sources */,
+				83B8D2A6237A7FB800DF69C0 /* RedPacketService.swift in Sources */,
 				DB0ABA0B237553E500AD3B7F /* UIViewPreview.swift in Sources */,
 				DB0758D0224895B40046FBFD /* MessageCardCell.swift in Sources */,
 				DB0ABA18237585B500AD3B7F /* WalletService.swift in Sources */,
@@ -2396,6 +2415,7 @@
 				83B93D3E221D4AED00F556C0 /* Direction.swift in Sources */,
 				8378337A224BA43700F2C0BF /* ContactDBAction.swift in Sources */,
 				83DFC73C2258D0EF00993160 /* Assets.swift in Sources */,
+				83B8D2A7237A7FB800DF69C0 /* RedPacketService.swift in Sources */,
 				83245A89237172F60046632E /* KeyboardModeManager+RedPacket.swift in Sources */,
 				83B93D53221E33C600F556C0 /* ForwardingView.swift in Sources */,
 				836F23C52373BF2900F938E6 /* RedPacketRecipientSelectViewController.swift in Sources */,
@@ -2470,6 +2490,7 @@
 				DB63A11A22E066ED00C2DDA6 /* ComposeMessageViewModel.swift in Sources */,
 				DB63A0DF22DD939C00C2DDA6 /* MessageCardCell.swift in Sources */,
 				DB15695B23277FD900220926 /* ProfileService+Contact.swift in Sources */,
+				83B8D2A8237A8F8700DF69C0 /* RedPacketService.swift in Sources */,
 				DB8D7317231E393D005D15DD /* Email.swift in Sources */,
 				DB63A0F022DDA2C000C2DDA6 /* strings.swift in Sources */,
 				DB63A0FD22DDCB9700C2DDA6 /* KeyFactory+TCKey.swift in Sources */,
@@ -2544,6 +2565,7 @@
 				DB1169A122E182730099BA25 /* Assets.swift in Sources */,
 				DB1169BD22E183CD0099BA25 /* KeyFactory+BCOpenPGP.swift in Sources */,
 				DB1169B722E183860099BA25 /* WormholdService.swift in Sources */,
+				83B8D2A9237A8F8700DF69C0 /* RedPacketService.swift in Sources */,
 				DB1169E122E1A1130099BA25 /* TCActionButton.swift in Sources */,
 				DB1169BB22E183C80099BA25 /* KeyFactory.swift in Sources */,
 				DB1169DB22E19C7D0099BA25 /* TCCardView.swift in Sources */,

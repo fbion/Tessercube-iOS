@@ -17,6 +17,7 @@ class WalletsViewModel: NSObject {
 
     override init() {
         super.init()
+        RedPacketService.shared.checkNetworkStatus()
     }
 
 }
@@ -127,6 +128,10 @@ extension WalletsViewController {
             Coordinator.main.present(scene: .importWallet, from: self, transition: .modal, completion: nil)
         }
         alertController.addAction(importWalletAction)
+        let createRedPacketAction = UIAlertAction(title: "Create Red Packet", style: .default) { _ in
+            Coordinator.main.present(scene: .createRedPacket, from: self, transition: .modal, completion: nil)
+        }
+        alertController.addAction(createRedPacketAction)
         let cancelAction = UIAlertAction(title: L10n.Common.Button.cancel, style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         if let popoverPresentationController = alertController.popoverPresentationController {

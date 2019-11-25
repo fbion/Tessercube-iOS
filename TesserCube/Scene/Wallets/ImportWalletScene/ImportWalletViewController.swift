@@ -114,6 +114,9 @@ class ImportWalletViewController: TCBaseViewController {
 
         activityIndicatorView.hidesWhenStopped = true
         activityIndicatorView.stopAnimating()
+        
+        // Bind button action
+        importButton.addTarget(self, action: #selector(ImportWalletViewController.importWalletButtonPressed(_:)), for: .touchUpInside)
 
         viewModel.delegate = self
     }
@@ -140,6 +143,22 @@ class ImportWalletViewController: TCBaseViewController {
 extension ImportWalletViewController {
 
     @objc private func closeBarButtonItemPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc private func importWalletButtonPressed(_ sender: UIButton) {
+        guard let password = passphraseTextField.text, !password.isEmpty else {
+            let alertController = UIAlertController(title: "Error", message: "Password Needed.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: L10n.Common.Button.ok, style: .default, handler: nil)
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
+            return
+        }
+
+        let mnemonic = viewModel.mnemonic
+        let wallet = Wallet(mnemonic: mnemonic, passphrase: password)
+        WalletService.default.append(wallet: wallet)
+
         dismiss(animated: true, completion: nil)
     }
 

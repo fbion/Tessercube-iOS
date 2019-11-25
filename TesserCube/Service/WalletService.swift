@@ -56,7 +56,7 @@ extension WalletService {
 
     private func save() {
         let encoder = JSONEncoder()
-        let walletDatas = wallets.value.compactMap { try! encoder.encode($0) }
+        let walletDatas = wallets.value.compactMap { try? encoder.encode($0) }
 
         do {
             let walletsData = try NSKeyedArchiver.archivedData(withRootObject: walletDatas, requiringSecureCoding: true)
